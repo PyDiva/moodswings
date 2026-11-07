@@ -1,16 +1,39 @@
-# React + Vite
+# MoodSwings 🎭
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A cute pixel-style web app that detects your facial emotion through the
+webcam and plays a matching song.
 
-Currently, two official plugins are available:
+## Features
+- Real-time face emotion detection in the browser
+- 8 moods: happy, laughing, sad, crying, shocked, angry, fearful, neutral
+- A different song plays for each mood
+- Live emotion score bars and a volume slider
+- Pink pixel-art design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Built with
+- React + Vite
+- face-api.js (@vladmandic/face-api)
+- JavaScript, HTML5, CSS
 
-## React Compiler
+## How to run
+```bash
+npm install
+npm run dev
+```
+Then open http://localhost:5173/ in Chrome, click start and allow the camera.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Songs
+The songs are not included in this repository. Add your own mp3 files to
+`public/songs/` with these exact names:
 
-## Expanding the Oxlint configuration
+happy.mp3, laughing.mp3, sad.mp3, crying.mp3,
+shocked.mp3, angry.mp3, fearful.mp3, neutral.mp3
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## How it works
+face-api detects your face and gives scores for 7 basic expressions.
+Laughing is guessed from a happy face with an open mouth, and crying from
+a very high sad score. The song changes after the same mood is seen
+a few times in a row.
+
+## Author
+Manasa Vernekar
